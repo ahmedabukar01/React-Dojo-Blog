@@ -28,6 +28,7 @@ const Home = () =>{
             setError(err.message);
             setIsPending(false)
         });
+        
     }, [])
 
     return (

@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './Navbar';
 import Home from './Home';
 
+
 const App = () =>{
   return (
     <div className='App'>
@@ -15,4 +16,4 @@ const App = () =>{
 
 export default App;
 
-// react router on the line
+// little task

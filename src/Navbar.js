@@ -1,5 +1,4 @@
 const Navbar = () =>{
-    
     return (
         <div className='navbar'>
             <h1>The Dojo Blog</h1>

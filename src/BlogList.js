@@ -18,4 +18,4 @@ const BlogList = ({blogs,title }) =>{
 
 export default BlogList;
 
-// blog component
+// blog component, just paused until this month

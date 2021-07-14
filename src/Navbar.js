@@ -12,4 +12,4 @@ const Navbar = () =>{
 
 export default Navbar
 
-// navbar component
+// navbar

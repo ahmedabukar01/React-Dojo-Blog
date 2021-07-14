@@ -28,3 +28,5 @@ const useFetch = (url)=>{
 }
 
 export default useFetch;
+
+// asynch fetching data from json-server

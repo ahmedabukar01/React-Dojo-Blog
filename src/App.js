@@ -19,4 +19,4 @@ export default App;
 // i will be back working this project after a month.
 // making all these comments for just github.
 
-// paused pausedpaused paused pausedpaused
+// paused pausedpaused paused pausedpaused pausedpaused

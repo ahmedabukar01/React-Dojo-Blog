@@ -1,16 +1,27 @@
 import './App.css';
 import Navbar from './Navbar';
 import Home from './Home';
+import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Create from './Create';
 
 
 const App = () =>{
   return (
+    <Router>
     <div className='App'>
       <Navbar />
       <div className='content'>
-        <Home />
+        <Switch>
+          <Route path="/">
+            <Home />
+          </Route>
+          <Route path="/create">
+            <Create />
+          </Route>
+        </Switch>
       </div>
     </div>
+    </Router>
   )
 }
 

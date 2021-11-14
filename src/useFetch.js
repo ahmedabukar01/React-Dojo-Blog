@@ -5,7 +5,10 @@ const useFetch = (url)=>{
     const [error, setError] = useState(null);
     
     useEffect(()=>{
-        fetch(url)
+        const myAbort = new AbortController();
+
+      setTimeout(()=>{
+        fetch(url, {signal: myAbort.signal})
         .then(data=>{
             if(!data.ok){
                 throw Error('could not fetch the data');
@@ -18,38 +21,23 @@ const useFetch = (url)=>{
             setError(null)
         })
         .catch(err=>{
-            setError(err.message);
-            setIsPending(false)
+            if(err.name === 'AbortError'){
+                console.log('fetch Aborted',err.name)
+            } else{
+                setError(err.message);
+                setIsPending(false)
+            }
+            
         });
+      },1000)
         
-    }, [])
+      return ()=>{
+          myAbort.abort();
+      }
+    }, [url])
 
     return {data,isPending,error};
 }
 
 export default useFetch;
 
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server
-// asynch fetching data from json-server

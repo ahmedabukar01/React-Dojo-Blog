@@ -3,12 +3,29 @@ import { useState } from 'react';
 const Create = () =>{
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('')
-    const [author, setAuthor] = useState('');
+    const [author, setAuthor] = useState('ahmed');
+    const [isPending,setIspending] = useState(false);
+
+    const submitHandle = (e)=>{
+        e.preventDefault();
+
+        setIspending(true);
+
+        fetch('http://localhost:5000/blogs',{
+            method:'POST',
+            headers: {'content-type':'application/json'},
+            body: JSON.stringify({title,body,author})
+        }).then(()=>{
+            console.log('added');
+            setIspending(false);
+        })
+    }
 
     return (
         <div className="create">
             <h1>Create new Blog...</h1>
-            <form>
+
+            <form onSubmit={submitHandle}>
                 <label>Blog Title</label>
                 <input
                     type="text"
@@ -30,10 +47,9 @@ const Create = () =>{
                     <option value="ahmed">Ahmed</option>
                     <option value="Abukar">Abukar</option>
                 </select>
-                <button>Add Blog</button>
-                <p>{author}</p>
-                <p>{body}</p>
-                <p>{title}</p>
+                {!isPending && <button>Add Blog</button>}
+                {isPending && <button disabled>Adding blog...</button>}
+            
             </form>
         </div>
     )

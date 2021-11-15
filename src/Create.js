@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import {useHistory} from 'react-router-dom';
 
 const Create = () =>{
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('')
     const [author, setAuthor] = useState('ahmed');
     const [isPending,setIspending] = useState(false);
+
+    const history = useHistory();
 
     const submitHandle = (e)=>{
         e.preventDefault();
@@ -18,6 +21,8 @@ const Create = () =>{
         }).then(()=>{
             console.log('added');
             setIspending(false);
+            // history.go(-1);
+            history.push('/');
         })
     }
 
